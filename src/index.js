@@ -53,8 +53,7 @@ app.get(
         failureRedirect: "/auth/google/failure",
     }),
     function (req, res) {
-        const { ...user } = req.user;
-        return res.status(200).json({ user });
+        res.redirect("http://localhost:3000/home")
     }
 );
 
