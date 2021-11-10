@@ -14,7 +14,6 @@ passport.use(new GoogleStrategy({
     callbackURL: "http://localhost:9900/auth/google/callback"
 },
     async function (accessToken, refreshToken, profile, cb) {
-        console.log(profile, "profile");
         const email = profile?._json?.email;
         const name = profile?._json?.name;
         const picture = profile?._json?.picture;
@@ -40,5 +39,3 @@ passport.use(new GoogleStrategy({
 ));
 
 module.exports = passport;
-
-// http://localhost:9900/auth/google
