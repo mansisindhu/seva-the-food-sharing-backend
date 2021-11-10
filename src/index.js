@@ -53,7 +53,7 @@ app.get(
         failureRedirect: "/auth/google/failure",
     }),
     function (req, res) {
-        res.redirect("http://localhost:3000/home")
+        res.redirect("http://localhost:3000")
     }
 );
 
