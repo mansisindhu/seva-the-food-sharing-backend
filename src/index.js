@@ -17,6 +17,7 @@ app.use(cors({ origin: "http://localhost:3000", credentials: true }));
 const User = require("./models/user.model");
 
 const userController = require("./controllers/user.controller");
+const ngoController = require("./controllers/ngo.controller");
 
 const passport = require("./configs/passport");
 
@@ -70,6 +71,8 @@ app.get("/test", isAutheticated, (req, res) => {
 })
 
 app.use("/user", isAutheticated, userController);
+
+app.use("/ngos", ngoController);
 
 app.get("/logout", (req, res) => {
     req.logout();
