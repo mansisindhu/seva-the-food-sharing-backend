@@ -1,6 +1,6 @@
 require("dotenv").config();
 
-const GoogleStrategy = require('passport-google-oauth2').Strategy;
+const GoogleStrategy = require('passport-google-oauth20').Strategy;
 
 const passport = require("passport");
 
@@ -11,10 +11,10 @@ const { v4: uuidv4 } = require('uuid');
 passport.use(new GoogleStrategy({
     clientID: process.env.GOOGLE_CLIENT_ID,
     clientSecret: process.env.GOOGLE_CLIENT_SECRET,
-    callbackURL: "http://localhost:2930/auth/google/callback",
-    passReqToCallback: true
+    callbackURL: "http://localhost:9900/auth/google/callback"
 },
-    async function (request, accessToken, refreshToken, profile, done) {
+    async function (accessToken, refreshToken, profile, cb) {
+        console.log(profile, "profile");
         const email = profile?._json?.email;
         const name = profile?._json?.name;
         const picture = profile?._json?.picture;
@@ -32,7 +32,7 @@ passport.use(new GoogleStrategy({
                 })
             }
 
-            return done(null, { user })
+            return cb(null, user)
         } catch (err) {
             console.log({ err });
         }
@@ -40,3 +40,5 @@ passport.use(new GoogleStrategy({
 ));
 
 module.exports = passport;
+
+// http://localhost:9900/auth/google
