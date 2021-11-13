@@ -20,5 +20,10 @@
 - Starting server using   npm start
 - Start redis server
 
+$ git clone https://github.com/nitish1310/amazon-clone
+$ cd amazon-clone
+$ yarn && yarn start
+
+
 ## Frontend
    You get all the required details about forntend by visiting this repo  https://github.com/mansisindhu/seva-the-food-sharing-frontend
