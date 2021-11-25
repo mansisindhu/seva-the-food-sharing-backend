@@ -15,7 +15,7 @@ if (process.env.IS_HEROKU) {
       cookie: {
         sameSite: "none",
         secure: true,
-        domain: process.env.FRONTEND_URL,
+        domain: process.env.BACKEND_URL,
         path: "/",
         httpOnly: true,
       },
